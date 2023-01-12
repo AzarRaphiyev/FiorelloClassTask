@@ -1,0 +1,24 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update a slider</h1>
+<div class="container">
+<form method="post" asp-action="update" enctype="multipart/form-data">
+
+
+		<div class="row" style="margin-bottom:50px">
+			<div style="margin-bottom: 30px">
+				<label asp-for="ImageFile" class="form-label">Image File</label>
+				<input class="form-control" asp-for="ImageFile" placeholder="Image File">
+				<span asp-validation-for="ImageFile" class="text-danger"></span>
+			</div>
+		</div>
+
+
+		<div class="row" style="margin-bottom: 100px"><button type="submit" class="btn btn-primary">Update</button></div>
+
+
+</form>
+</div>

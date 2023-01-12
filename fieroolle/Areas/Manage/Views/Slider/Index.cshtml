@@ -1,0 +1,41 @@
+﻿@using fieroolle.Models;
+@model List<Slider>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+<div class="container" style="display:flex; justify-content:space-between; align-items:center">
+    <h1>Sliders:</h1>
+    <a asp-action="create" asp-controller="slider" style="margin-left:40px font-size: 16px;" class="btn btn-primary">Create slider</a>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>
+                    <img style="width:150px" src="~/Uploads/slider/@item.Image"></img>
+                </td>
+                <td>
+                    <a asp-action="update" asp-controller="slider" asp-route-id="@item.Id" class="btn btn-info">Update</a>
+                    <a asp-action="delete" asp-controller="slider" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
